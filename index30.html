@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me?</title>
+    <style>
+        body {
+            background-color: #ffe6e6; /* Màu nền hồng nhạt cute */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Không cho cuộn trang */
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #fff;
+        }
+
+        /* Khung chứa ảnh gấu */
+        .gif-container {
+            margin-bottom: 30px;
+        }
+        
+        .gif-container img {
+            width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            position: relative; /* Để nút No chạy tương đối theo khung này hoặc body */
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background-color: #ff4757;
+            color: white;
+            box-shadow: 0 4px #dfe4ea;
+        }
+
+        #yesBtn:active {
+            box-shadow: 0 2px #dfe4ea;
+            transform: translateY(2px);
+        }
+
+        #noBtn {
+            background-color: #fff;
+            color: #ff4757;
+            box-shadow: 0 4px #dfe4ea;
+            position: absolute; /* Quan trọng để nút di chuyển tự do */
+            left: 130px; /* Vị trí ban đầu bên cạnh nút Yes */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="gif-container">
+        <img src="https://media1.tenor.com/m/gUiu1zyxfzYAAAAC/bear-kiss-bear-kisses.gif" alt="Cute Bears">
+    </div>
+
+    <h1>Đu du lớp mii=((</h1>
+
+    <div class="btn-container">
+        <button id="yesBtn" onclick="acceptLove()">Yes ❤️</button>
+        <button id="noBtn" onmouseover="moveButton()">No 💔</button>
+    </div>
+
+    <script>
+        // Hàm khi bấm nút Yes
+        function acceptLove() {
+            alert("Hehe, I love you too! 🥰");
+
+            document.body.style.backgroundColor = "#ffcccc";
+            document.querySelector('h1').innerText = "Dàa húuu, Anh yêu em nhìuu nhắm pé Linh ơiiii:33! ❤️";
+        }
+
+        // Hàm làm nút No chạy trốn
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - 100); // Trừ bớt kích thước nút
+            var y = Math.random() * (window.innerHeight - 50);
+            
+            var btnNo = document.getElementById('noBtn');
+            
+            // Đổi vị trí sang toạ độ mới
+            btnNo.style.position = 'fixed'; // Chuyển sang fixed để chạy khắp màn hình
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px';
+        }
+    </script>
+
+</body>
+</html>
